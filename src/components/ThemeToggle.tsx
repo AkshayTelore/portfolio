@@ -53,15 +53,15 @@ export default function ThemeToggle({ className = "", variant = "pill" }: ThemeT
       <button
         type="button"
         onClick={toggleTheme}
-        className={`fixed bottom-5 left-5 z-40 p-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl hover:scale-110 active:scale-95 transition-all duration-200 group flex items-center gap-2 ${className}`}
+        className={`fixed bottom-4 sm:bottom-5 left-4 sm:left-5 z-40 p-2.5 sm:p-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 group flex items-center gap-2 touch-manipulation ${className}`}
         aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
         title={`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
       >
-        <div className="relative w-5 h-5 flex items-center justify-center">
+        <div className="relative w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
           {theme === "light" ? (
-            <Moon className="w-5 h-5 text-slate-700 group-hover:text-red-600 transition-colors" />
+            <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700 group-hover:text-red-600 transition-colors" />
           ) : (
-            <Sun className="w-5 h-5 text-amber-400 group-hover:text-amber-300 transition-colors" />
+            <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 group-hover:text-amber-300 transition-colors" />
           )}
         </div>
         <span className="hidden sm:inline-block text-xs font-mono font-medium text-slate-700 dark:text-slate-300 pr-1">
@@ -76,7 +76,7 @@ export default function ThemeToggle({ className = "", variant = "pill" }: ThemeT
       <button
         type="button"
         onClick={toggleTheme}
-        className={`p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-red-600 transition-all hover:scale-105 active:scale-95 shadow-sm ${className}`}
+        className={`p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-red-600 transition-all hover:scale-105 active:scale-95 shadow-sm touch-manipulation ${className}`}
         aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
         title={`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
       >
@@ -94,7 +94,7 @@ export default function ThemeToggle({ className = "", variant = "pill" }: ThemeT
     <button
       type="button"
       onClick={toggleTheme}
-      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-red-400 text-xs font-mono font-medium transition-all shadow-sm ${className}`}
+      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-red-400 text-xs font-mono font-medium transition-all shadow-sm touch-manipulation ${className}`}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       title={`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
     >

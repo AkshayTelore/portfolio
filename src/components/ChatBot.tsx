@@ -136,19 +136,19 @@ export default function ChatBot({ isOpen, setIsOpen }: ChatBotProps) {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+    <div className="fixed bottom-4 sm:bottom-5 right-3.5 sm:right-5 z-50 flex flex-col items-end">
       {/* Floating Chat Launcher Button (Red Accent) */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-red-600 hover:bg-red-500 text-white font-semibold shadow-xl shadow-red-600/35 hover:scale-105 transition-all duration-200"
+          className="group relative flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-full bg-red-600 hover:bg-red-500 text-white font-semibold shadow-xl shadow-red-600/35 hover:scale-105 active:scale-95 transition-all duration-200 touch-manipulation"
           aria-label="Open AI Assistant"
         >
           <div className="relative">
-            <Bot className="w-5 h-5 text-white" />
-            <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <span className="absolute -top-1 -right-1 flex h-2 sm:h-2.5 w-2 sm:w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+              <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-emerald-400"></span>
             </span>
           </div>
           <span className="text-xs sm:text-sm tracking-tight font-medium">
@@ -162,9 +162,9 @@ export default function ChatBot({ isOpen, setIsOpen }: ChatBotProps) {
         </button>
       )}
 
-      {/* Expandable Chat Window (Light Theme) */}
+      {/* Expandable Chat Window */}
       {isOpen && (
-        <div className="w-[92vw] sm:w-[410px] h-[580px] max-h-[85vh] rounded-3xl bg-white/98 border border-slate-200 shadow-2xl backdrop-blur-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+        <div className="w-[92vw] sm:w-[410px] h-[540px] max-h-[82vh] rounded-2xl sm:rounded-3xl bg-white/98 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl backdrop-blur-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
           {/* Window Header */}
           <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
@@ -274,7 +274,7 @@ export default function ChatBot({ isOpen, setIsOpen }: ChatBotProps) {
           </div>
 
           {/* Chat Input Bar */}
-          <div className="p-3 bg-white border-t border-slate-200">
+          <div className="p-2.5 sm:p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -287,13 +287,13 @@ export default function ChatBot({ isOpen, setIsOpen }: ChatBotProps) {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about Chotubot, DocuEsign, Resume..."
-                className="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-red-500 focus:bg-white transition-colors"
+                placeholder="Ask about Chotubot, DocuEsign..."
+                className="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-base sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-red-500 focus:bg-white dark:focus:bg-slate-800 transition-colors"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isTyping}
-                className="p-2.5 rounded-xl bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white transition-colors shadow-sm"
+                className="p-2.5 rounded-xl bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white transition-colors shadow-sm touch-manipulation flex-shrink-0"
                 aria-label="Send message"
               >
                 <Send className="w-4 h-4" />
