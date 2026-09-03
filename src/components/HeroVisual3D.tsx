@@ -29,6 +29,7 @@ export default function HeroVisual3D() {
     });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
     // Main Group for 360 rotation
@@ -48,14 +49,14 @@ export default function HeroVisual3D() {
     const outerMesh = new THREE.Mesh(outerGeo, outerMat);
     mainGroup.add(outerMesh);
 
-    // Inner Faceted Nucleus - Deep Sapphire Blue
+    // Inner Faceted Nucleus - Crimson Ruby
     const innerGeo = new THREE.OctahedronGeometry(0.85, 1);
     const innerMat = new THREE.MeshPhysicalMaterial({
-      color: 0x2563eb, // royal cobalt blue
-      emissive: 0x1e3a8a,
-      emissiveIntensity: 0.5,
-      roughness: 0.2,
-      metalness: 0.85,
+      color: 0xdc2626, // crimson ruby red
+      emissive: 0x7f1d1d,
+      emissiveIntensity: 0.55,
+      roughness: 0.18,
+      metalness: 0.88,
       clearcoat: 1.0,
       clearcoatRoughness: 0.1,
       wireframe: false,
@@ -63,12 +64,12 @@ export default function HeroVisual3D() {
     const innerMesh = new THREE.Mesh(innerGeo, innerMat);
     mainGroup.add(innerMesh);
 
-    // Concentric Orbit Rings - Platinum & Sapphire
+    // Concentric Orbit Rings - Ruby & Polished Steel
     const torusGeo1 = new THREE.TorusGeometry(1.15, 0.015, 16, 120);
     const torusMat1 = new THREE.MeshBasicMaterial({
-      color: 0x60a5fa, // light cobalt
+      color: 0xef4444, // bright radiant ruby
       transparent: true,
-      opacity: 0.65,
+      opacity: 0.75,
     });
     const torus1 = new THREE.Mesh(torusGeo1, torusMat1);
     torus1.rotation.x = Math.PI / 3;
@@ -76,19 +77,19 @@ export default function HeroVisual3D() {
 
     const torusGeo2 = new THREE.TorusGeometry(1.25, 0.012, 16, 120);
     const torusMat2 = new THREE.MeshBasicMaterial({
-      color: 0x94a3b8, // platinum
+      color: 0x94a3b8, // silver steel
       transparent: true,
-      opacity: 0.45,
+      opacity: 0.55,
     });
     const torus2 = new THREE.Mesh(torusGeo2, torusMat2);
     torus2.rotation.y = Math.PI / 3.5;
     mainGroup.add(torus2);
 
-    // Orbiting Satellites (Refined Professional Palette)
+    // Orbiting Satellites (Refined Modern Palette)
     const satelliteGroup = new THREE.Group();
     mainGroup.add(satelliteGroup);
 
-    const satelliteColors = [0x3b82f6, 0x60a5fa, 0x10b981, 0x818cf8, 0xe2e8f0];
+    const satelliteColors = [0xdc2626, 0xef4444, 0x10b981, 0xf97316, 0x334155];
     satelliteColors.forEach((color, i) => {
       const satGeo = new THREE.SphereGeometry(0.075, 16, 16);
       const satMat = new THREE.MeshStandardMaterial({
@@ -278,44 +279,44 @@ export default function HeroVisual3D() {
       />
 
       {/* Subtle Background Radial Ring */}
-      <div className="absolute inset-4 rounded-full border border-blue-500/10 pointer-events-none animate-pulse-slow" />
-      <div className="absolute inset-10 rounded-full border border-slate-700/15 pointer-events-none" />
+      <div className="absolute inset-4 rounded-full border border-red-500/15 pointer-events-none animate-pulse-slow" />
+      <div className="absolute inset-10 rounded-full border border-slate-200 pointer-events-none" />
 
       {/* Floating 360° HUD Badge */}
-      <div className="absolute top-2 left-2 flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 backdrop-blur-md text-[11px] font-mono text-slate-300 shadow-xl">
-        <Compass className={`w-3.5 h-3.5 ${isInteracting ? "text-blue-400 animate-spin" : "text-blue-400"}`} />
+      <div className="absolute top-2 left-2 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 border border-slate-200 backdrop-blur-md text-[11px] font-mono text-slate-700 shadow-md">
+        <Compass className={`w-3.5 h-3.5 ${isInteracting ? "text-red-600 animate-spin" : "text-red-600"}`} />
         <span>360° Architecture View</span>
-        <span className="text-slate-600">|</span>
-        <span className="text-white font-bold">{rotationDeg}°</span>
+        <span className="text-slate-300">|</span>
+        <span className="text-slate-900 font-bold">{rotationDeg}°</span>
       </div>
 
       {/* Interactive Controls Overlay */}
       <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between pointer-events-none">
-        <span className="text-[10px] font-mono text-slate-400 px-2.5 py-1 rounded-lg bg-slate-900/90 border border-slate-800 backdrop-blur-sm">
+        <span className="text-[10px] font-mono text-slate-500 px-2.5 py-1 rounded-lg bg-white/95 border border-slate-200 backdrop-blur-sm shadow-sm">
           Drag to rotate
         </span>
         <button
           type="button"
           onClick={() => setIsAutoOrbit(!isAutoOrbit)}
-          className="pointer-events-auto text-[10px] font-mono px-2.5 py-1 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-blue-300 flex items-center gap-1.5 transition-colors"
+          className="pointer-events-auto text-[10px] font-mono px-2.5 py-1 rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-red-600 flex items-center gap-1.5 transition-colors shadow-sm"
         >
-          <RotateCw className={`w-3 h-3 ${isAutoOrbit ? "animate-spin text-blue-400" : "text-slate-500"}`} />
+          <RotateCw className={`w-3 h-3 ${isAutoOrbit ? "animate-spin text-red-600" : "text-slate-400"}`} />
           <span>{isAutoOrbit ? "Auto-Orbit" : "Paused"}</span>
         </button>
       </div>
 
       {/* Floating Stack Pills */}
-      <div className="hidden sm:flex absolute -right-2 top-8 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/95 border border-blue-500/30 text-xs font-mono text-blue-300 shadow-2xl backdrop-blur-md animate-float">
-        <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-        <span>Next.js • Supabase • TypeScript</span>
+      <div className="hidden sm:flex absolute -right-2 top-8 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/95 border border-red-200 text-xs font-mono text-red-700 shadow-lg backdrop-blur-md animate-float">
+        <Sparkles className="w-3.5 h-3.5 text-red-600" />
+        <span>Next.js • Supabase • Flutter</span>
       </div>
 
       <div
-        className="hidden sm:flex absolute -left-4 bottom-14 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/95 border border-slate-700 text-xs font-mono text-slate-300 shadow-2xl backdrop-blur-md animate-float"
+        className="hidden sm:flex absolute -left-4 bottom-14 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/95 border border-slate-200 text-xs font-mono text-slate-700 shadow-lg backdrop-blur-md animate-float"
         style={{ animationDelay: "1.5s" }}
       >
-        <Layers className="w-3.5 h-3.5 text-blue-400" />
-        <span>DocuEsign • AppyMinds LMS</span>
+        <Layers className="w-3.5 h-3.5 text-red-600" />
+        <span>DocuEsign • Chotubot.com</span>
       </div>
     </div>
   );

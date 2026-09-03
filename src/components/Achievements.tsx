@@ -3,16 +3,17 @@
 import React from "react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { Trophy, Award, Activity, Sparkles } from "lucide-react";
+import ClassyCard from "./ClassyCard";
 
 export default function Achievements() {
   const getAchievementIcon = (iconName: string) => {
     switch (iconName) {
       case "trophy":
-        return <Trophy className="w-5 h-5 text-amber-400" />;
+        return <Trophy className="w-5 h-5 text-amber-500" />;
       case "activity":
-        return <Activity className="w-5 h-5 text-blue-400" />;
+        return <Activity className="w-5 h-5 text-red-600" />;
       default:
-        return <Award className="w-5 h-5 text-blue-400" />;
+        return <Award className="w-5 h-5 text-red-600" />;
     }
   };
 
@@ -20,51 +21,52 @@ export default function Achievements() {
     <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-mono text-blue-400 uppercase tracking-widest px-3 py-1 rounded-full bg-blue-950/40 border border-blue-800/40">
+        <span className="text-xs font-mono text-red-700 uppercase tracking-widest px-3 py-1 rounded-full bg-red-50 border border-red-200">
           Honors & Leadership
         </span>
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4 mb-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-4 mb-4">
           Achievements & Extracurriculars
         </h2>
-        <p className="text-sm sm:text-base text-slate-400">
+        <p className="text-sm sm:text-base text-slate-600">
           Demonstrated dedication on and off the terminal — team leadership, competitive cricket, and creative performance.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {PORTFOLIO_DATA.achievements.map((item) => (
-          <div
+        {PORTFOLIO_DATA.achievements.map((item, idx) => (
+          <ClassyCard
             key={item.id}
-            className="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-800/90 hover:border-blue-500/40 transition-all flex flex-col justify-between group"
+            delay={idx * 140}
+            className="glass-panel p-6 sm:p-8 border border-slate-200 hover:border-red-500/40 flex flex-col justify-between shadow-sm hover:shadow-xl"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800 group-hover:scale-105 transition-transform">
+                <div className="p-3 rounded-2xl bg-red-50 border border-red-100 group-hover:scale-105 transition-transform">
                   {getAchievementIcon(item.icon)}
                 </div>
-                <span className="text-xs font-mono px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-blue-300">
+                <span className="text-xs font-mono px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 font-medium">
                   {item.badge}
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors mb-1">
+              <h3 className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors mb-1">
                 {item.title}
               </h3>
 
-              <div className="text-xs text-slate-400 font-mono mb-3">
+              <div className="text-xs text-slate-500 font-mono mb-3">
                 {item.organization} • {item.period}
               </div>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 {item.description}
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center gap-1.5 text-xs text-blue-400 font-mono">
+            <div className="mt-6 pt-4 border-t border-slate-200 flex items-center gap-1.5 text-xs text-red-600 font-mono font-medium">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Certified Recognition</span>
             </div>
-          </div>
+          </ClassyCard>
         ))}
       </div>
     </section>

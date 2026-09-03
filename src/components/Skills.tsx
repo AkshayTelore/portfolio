@@ -10,20 +10,21 @@ import {
   Sparkles,
   Server,
 } from "lucide-react";
+import ClassyCard from "./ClassyCard";
 
 export default function Skills() {
   const getCategoryIcon = (index: number) => {
     switch (index) {
       case 0:
-        return <Code2 className="w-5 h-5 text-blue-400" />;
+        return <Code2 className="w-5 h-5 text-red-600" />;
       case 1:
-        return <Server className="w-5 h-5 text-indigo-400" />;
+        return <Server className="w-5 h-5 text-rose-600" />;
       case 2:
-        return <Database className="w-5 h-5 text-blue-400" />;
+        return <Database className="w-5 h-5 text-red-600" />;
       case 3:
-        return <CreditCard className="w-5 h-5 text-emerald-400" />;
+        return <CreditCard className="w-5 h-5 text-orange-600" />;
       default:
-        return <Wrench className="w-5 h-5 text-slate-400" />;
+        return <Wrench className="w-5 h-5 text-red-600" />;
     }
   };
 
@@ -31,32 +32,33 @@ export default function Skills() {
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-mono text-blue-400 uppercase tracking-widest px-3 py-1 rounded-full bg-blue-950/40 border border-blue-800/40">
+        <span className="text-xs font-mono text-red-700 uppercase tracking-widest px-3 py-1 rounded-full bg-red-50 border border-red-200">
           Core Capabilities
         </span>
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4 mb-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-4 mb-4">
           Skills & Technical Expertise
         </h2>
-        <p className="text-sm sm:text-base text-slate-400">
-          A comprehensive toolkit refined across production web applications, secure APIs, databases, and DevOps.
+        <p className="text-sm sm:text-base text-slate-600">
+          A comprehensive toolkit refined across production web applications, secure APIs, databases, mobile apps, and DevOps.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PORTFOLIO_DATA.skills.categories.map((cat, idx) => (
-          <div
+          <ClassyCard
             key={cat.title}
-            className="glass-panel rounded-3xl p-6 sm:p-7 border border-slate-800/90 hover:border-blue-500/40 transition-all flex flex-col justify-between"
+            delay={idx * 110}
+            className="glass-panel p-6 sm:p-7 border border-slate-200 hover:border-red-500/40 flex flex-col justify-between shadow-sm hover:shadow-xl"
           >
             <div>
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-3">
-                <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <div className="p-2.5 rounded-xl bg-red-50 border border-red-100">
                   {getCategoryIcon(idx)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">{cat.title}</h3>
-                  <p className="text-xs text-slate-400">{cat.description}</p>
+                  <h3 className="text-lg font-bold text-slate-900">{cat.title}</h3>
+                  <p className="text-xs text-slate-500">{cat.description}</p>
                 </div>
               </div>
 
@@ -68,27 +70,27 @@ export default function Skills() {
                       <span
                         className={`font-medium ${
                           skill.highlight
-                            ? "text-blue-300 font-semibold flex items-center gap-1.5"
-                            : "text-slate-300"
+                            ? "text-red-700 font-semibold flex items-center gap-1.5"
+                            : "text-slate-700"
                         }`}
                       >
                         {skill.name}
                         {skill.highlight && (
-                          <Sparkles className="w-3 h-3 text-blue-400" />
+                          <Sparkles className="w-3 h-3 text-red-600" />
                         )}
                       </span>
-                      <span className="font-mono text-slate-500 text-[11px]">
+                      <span className="font-mono text-slate-400 text-[11px]">
                         {skill.level}%
                       </span>
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800/60">
+                    <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
                       <div
                         className={`h-full rounded-full transition-all duration-1000 ${
                           skill.highlight
-                            ? "bg-gradient-to-r from-blue-600 to-indigo-500"
-                            : "bg-slate-700"
+                            ? "bg-gradient-to-r from-red-600 to-rose-500"
+                            : "bg-slate-400"
                         }`}
                         style={{ width: `${skill.level}%` }}
                       />
@@ -98,11 +100,11 @@ export default function Skills() {
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
-              <span>Production Verified</span>
-              <span className="text-blue-400">✓ Production Ready</span>
+            <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-[11px] font-mono text-slate-500">
+              <span>Verified Production</span>
+              <span className="text-red-600 font-semibold">Active</span>
             </div>
-          </div>
+          </ClassyCard>
         ))}
       </div>
     </section>

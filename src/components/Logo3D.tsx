@@ -63,26 +63,26 @@ export default function Logo3D({ size = "md", showStatus = true }: Logo3DProps) 
       >
         {/* Deep 3D Shadow Layer */}
         <div
-          className="absolute inset-0 rounded-2xl bg-blue-600/30 blur-md transition-opacity duration-300"
+          className="absolute inset-0 rounded-2xl bg-red-600/30 blur-md transition-opacity duration-300"
           style={{
             transform: "translateZ(-14px)",
-            opacity: isHovered ? 0.9 : 0.45,
+            opacity: isHovered ? 0.9 : 0.4,
           }}
         />
 
         {/* 3D Beveled Outer Metallic Rim */}
         <div
-          className="absolute -inset-[2px] rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-sky-400 p-[2px] shadow-lg transition-all duration-300"
+          className="absolute -inset-[2px] rounded-2xl bg-gradient-to-tr from-red-600 via-rose-500 to-red-400 p-[2px] shadow-lg transition-all duration-300"
           style={{
             transform: "translateZ(-4px)",
           }}
         >
-          <div className="w-full h-full rounded-[14px] bg-slate-950" />
+          <div className="w-full h-full rounded-[14px] bg-white" />
         </div>
 
         {/* Main Avatar Surface */}
         <div
-          className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-900 border border-white/15 shadow-inner"
+          className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner"
           style={{
             transform: "translateZ(10px)",
           }}
@@ -98,7 +98,7 @@ export default function Logo3D({ size = "md", showStatus = true }: Logo3DProps) 
 
           {/* Dynamic 3D Holographic Glare Sheen */}
           <div
-            className="absolute inset-0 pointer-events-none transition-opacity duration-200 bg-gradient-to-tr from-transparent via-white/25 to-transparent"
+            className="absolute inset-0 pointer-events-none transition-opacity duration-200 bg-gradient-to-tr from-transparent via-white/35 to-transparent"
             style={{
               opacity: isHovered ? 0.7 : 0.15,
               transform: `translate(${rotation.y * 1.5}%, ${rotation.x * 1.5}%)`,
@@ -106,7 +106,7 @@ export default function Logo3D({ size = "md", showStatus = true }: Logo3DProps) 
           />
 
           {/* Inner Vignette */}
-          <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-white/20" />
+          <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-black/5" />
         </div>
 
         {/* Floating 3D Corner Pulse Status Dot */}
@@ -118,7 +118,7 @@ export default function Logo3D({ size = "md", showStatus = true }: Logo3DProps) 
             }}
           >
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 ring-2 ring-slate-950"></span>
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 ring-2 ring-white"></span>
           </div>
         )}
       </div>

@@ -19,10 +19,10 @@ export const INITIAL_BOT_MESSAGE: BotMessage = {
   text: `👋 **Hi there! I'm Akshay's AI Assistant.**\n\nI can tell you everything about Akshay's background, production platforms (**Chotubot.com built from scratch**, **DocuEsign**, **AppyMinds Blog Engine**), mobile development in **Flutter & Dart (Chotu ESP)**, tech stack (**Next.js, Supabase, Razorpay**), agile workflows (**Jira Kanban**), or how to contact him!\n\nWhat would you like to explore?`,
   timestamp: "Just now",
   quickPrompts: [
+    "Download Resume PDF",
     "Work at Chotubot.com",
     "Tell me about DocuEsign",
     "Chotu ESP App (Flutter/Dart)",
-    "Inventory & Affiliate features",
     "What is Akshay's tech stack?",
     "Jira Kanban & Agile",
   ],
@@ -34,6 +34,25 @@ export function answerAkshayQuestion(rawQuery: string): {
   actionLink?: { label: string; url: string; isExternal?: boolean };
 } {
   const query = rawQuery.toLowerCase().trim();
+
+  // 0. Resume & CV Download
+  if (
+    query.includes("resume") ||
+    query.includes("cv") ||
+    query.includes("pdf") ||
+    query.includes("download") ||
+    query.includes("biodata")
+  ) {
+    return {
+      text: `📄 **Akshay Pandurang Telore — Official Resume (PDF)**\n\nYou can review and download Akshay's complete 2-page professional resume covering:\n\n• **Work Experience:** Dextop (www.chotubot.com built from scratch) & SASH Info (DocuEsign)\n• **Key Products:** Inventory & Affiliate Dashboards, International Delivery, Chotu ESP Mobile App (Flutter & Dart), AppyMinds Blog CMS\n• **Tech Stack:** Next.js, React, TypeScript, Supabase, Razorpay, PostgreSQL, Jira Kanban\n• **Academics:** MCA from MES Garware College, Pune (9.18 CGPA)\n• **Achievements:** 1st prize dance competition, varsity cricket player\n\nClick below to download or view the official PDF:`,
+      quickPrompts: ["Work at Chotubot.com", "Chotu ESP Flutter App", "DocuEsign details", "Contact Akshay"],
+      actionLink: {
+        label: "📥 Download Akshay Telore Resume (PDF)",
+        url: "/Akshay_Telore_Resume.pdf",
+        isExternal: true,
+      },
+    };
+  }
 
   // 1. Chotubot.com / Dextop experience
   if (

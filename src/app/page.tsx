@@ -11,12 +11,13 @@ import Achievements from "@/components/Achievements";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[#090d16] text-slate-100 relative selection:bg-teal-500/30 selection:text-teal-200">
+    <main className="min-h-screen bg-slate-50 dark:bg-[#08070e] text-slate-900 dark:text-slate-100 relative selection:bg-red-500/20 selection:text-red-900">
       {/* Top Fixed Navigation */}
       <Navbar />
 
@@ -43,6 +44,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Corner Theme Mode Switcher */}
+      <ThemeToggle variant="floating" />
 
       {/* Interactive Corner AI Chatbot */}
       <ChatBot isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
