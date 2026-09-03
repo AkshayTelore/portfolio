@@ -79,7 +79,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
             </h1>
 
             <p className="hero-fade-in text-xl sm:text-2xl font-semibold text-slate-700 dark:text-slate-200 mb-4">
-              {PORTFOLIO_DATA.personal.role} & System Architect
+              {PORTFOLIO_DATA.personal.role} & Software Engineer
             </p>
 
             <p className="hero-fade-in text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-8">

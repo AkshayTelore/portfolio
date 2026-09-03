@@ -36,7 +36,7 @@ export const PORTFOLIO_DATA = {
     name: "Akshay Pandurang Telore",
     shortName: "Akshay Telore",
     role: "Full Stack Developer",
-    tagline: "Architecting scalable web applications, payment systems & real-time digital experiences.",
+    tagline: "Building scalable web applications, payment systems & real-time digital experiences.",
     bio: "Full Stack Developer with hands-on experience building scalable, production-ready web and mobile applications using Next.js, React.js, TypeScript, Node.js, Supabase, Flutter, and Dart. Built www.chotubot.com from scratch from Figma designs, engineered inventory management and affiliate marketing dashboards, international delivery pipelines, and the Chotu ESP IoT mobile app. Strong practitioner of agile development using Jira Kanban boards.",
     email: "teloreakshay1000@gmail.com",
     phone: "+91 9172925369",
