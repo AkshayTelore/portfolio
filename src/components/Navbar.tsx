@@ -85,8 +85,8 @@ export default function Navbar() {
             <Linkedin className="w-4 h-4" />
           </a>
           <a
-            href="/Akshay_Telore_Resume.pdf"
-            download="Akshay_Telore_Resume.pdf"
+            href="/AkshayFullStackResume.pdf"
+            download="AkshayFullStackResume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-red-600 dark:hover:text-red-400 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-red-400 dark:hover:border-red-500 px-3.5 py-2 rounded-xl transition-all shadow-sm"
@@ -112,8 +112,8 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle variant="icon" />
           <a
-            href="/Akshay_Telore_Resume.pdf"
-            download="Akshay_Telore_Resume.pdf"
+            href="/AkshayFullStackResume.pdf"
+            download="AkshayFullStackResume.pdf"
             className="inline-flex items-center gap-1 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-2.5 py-1.5 rounded-lg shadow-sm"
           >
             <Download className="w-3.5 h-3.5 text-red-600" />
@@ -154,8 +154,8 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               <ThemeToggle variant="pill" />
               <a
-                href="/Akshay_Telore_Resume.pdf"
-                download="Akshay_Telore_Resume.pdf"
+                href="/AkshayFullStackResume.pdf"
+                download="AkshayFullStackResume.pdf"
                 className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800 text-xs font-semibold shadow-sm"
               >
                 <Download className="w-3.5 h-3.5" />

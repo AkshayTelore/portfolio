@@ -84,7 +84,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
 
             <p className="hero-fade-in text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-8">
               {PORTFOLIO_DATA.personal.tagline} Hands-on production experience building{" "}
-              <span className="text-red-600 dark:text-red-400 font-semibold">www.chotubot.com from scratch</span>,{" "}
+              <span className="text-red-600 dark:text-red-400 font-semibold">www.chotubot.com</span>,{" "}
               <span className="text-slate-800 dark:text-slate-200 font-semibold">DocuEsign SaaS</span>, and{" "}
               <span className="text-red-600 dark:text-red-400 font-semibold">Chotu ESP mobile app in Flutter</span>.
             </p>
@@ -111,8 +111,8 @@ export default function Hero({ onOpenChat }: HeroProps) {
               </button>
 
               <a
-                href="/Akshay_Telore_Resume.pdf"
-                download="Akshay_Telore_Resume.pdf"
+                href="/AkshayFullStackResume.pdf"
+                download="AkshayFullStackResume.pdf"
                 className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:border-red-400 dark:hover:border-red-500 font-medium text-sm transition-all hover:-translate-y-0.5 shadow-sm group"
               >
                 <Download className="w-4 h-4 text-red-600 group-hover:translate-y-0.5 transition-transform" />
