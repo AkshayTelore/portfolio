@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "AppyMinds",
     "Razorpay",
     "Pune Developer",
-    "Render Deployment",
+    "Vercel Deployment",
   ],
   authors: [{ name: "Akshay Pandurang Telore", url: "https://github.com/AkshayTelore" }],
   openGraph: {

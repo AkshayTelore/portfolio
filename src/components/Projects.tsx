@@ -7,127 +7,106 @@ import {
   Github,
   CheckCircle2,
   Sparkles,
-  Server,
+  ShoppingBag,
   FileSignature,
   BookOpen,
-  ShoppingBag,
   ArrowUpRight,
-  Smartphone,
 } from "lucide-react";
 import ClassyCard from "./ClassyCard";
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
+  const categories = ["All", "Full Stack"];
+
   const filteredProjects = PORTFOLIO_DATA.projects.filter((p) => {
     if (activeFilter === "All") return true;
-    if (activeFilter === "Featured") return p.featured;
     return p.category === activeFilter;
   });
 
   const getProjectIcon = (id: string) => {
     switch (id) {
       case "chotubot-platform":
-        return <ShoppingBag className="w-5 h-5 text-red-600" />;
+        return <ShoppingBag className="w-5 h-5 text-red-600 dark:text-red-400" />;
       case "docuesign":
-        return <FileSignature className="w-5 h-5 text-red-600" />;
+        return <FileSignature className="w-5 h-5 text-red-600 dark:text-red-400" />;
       case "appyminds-blog":
-        return <BookOpen className="w-5 h-5 text-red-600" />;
-      case "chotu-esp-app":
-        return <Smartphone className="w-5 h-5 text-red-600" />;
+        return <BookOpen className="w-5 h-5 text-red-600 dark:text-red-400" />;
       default:
-        return <ShoppingBag className="w-5 h-5 text-red-600" />;
+        return <ShoppingBag className="w-5 h-5 text-red-600 dark:text-red-400" />;
     }
   };
 
   return (
-    <section
-      id="projects"
-      className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
-    >
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-mono text-red-700 uppercase tracking-widest px-3 py-1 rounded-full bg-red-50 border border-red-200">
-          Featured Engineering
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <span className="text-xs font-mono text-red-600 dark:text-red-400 uppercase tracking-widest px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40">
+          Featured Work
         </span>
-        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-4 mb-4">
-          Production Systems & Applications
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-4 mb-3">
+          Projects I&apos;ve Built & Shipped
         </h2>
-        <p className="text-sm sm:text-base text-slate-600">
-          Enterprise platforms engineered with Next.js, Flutter, robust security protocols, cloud APIs, and deployed for scale.
+        <p className="text-base text-slate-600 dark:text-slate-400">
+          Production e-commerce platforms, payment integrations, internal operations dashboards, and SaaS applications.
         </p>
       </div>
 
-      {/* Projects Showcase Grid with ClassyCard */}
-      <div className="space-y-12">
+      {/* Projects Grid */}
+      <div className="space-y-8">
         {filteredProjects.map((project, idx) => (
           <ClassyCard
             key={project.id}
-            delay={idx * 140}
-            className="glass-panel bg-white p-6 sm:p-10 border border-slate-200 hover:border-red-500/40 transition-all duration-300 shadow-sm hover:shadow-xl"
+            delay={idx * 120}
+            className="glass-panel p-6 sm:p-8 border border-slate-200 dark:border-slate-800 dark:bg-slate-900/80 shadow-sm hover:shadow-lg transition-all"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              {/* Left Details Column */}
+              {/* Left Column: Description & Highlights */}
               <div className="lg:col-span-8 flex flex-col justify-between">
                 <div>
-                  {/* Category & Status Badges */}
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="text-xs font-mono px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 font-medium">
+                  {/* Category and Period */}
+                  <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                    <span className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium">
                       {project.category}
                     </span>
-                    <span className="text-xs font-mono text-slate-500">
+                    <span className="text-xs font-mono text-slate-400">
                       {project.period}
                     </span>
                     {project.id === "chotubot-platform" && (
-                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200 flex items-center gap-1 font-semibold">
-                        <Sparkles className="w-3 h-3 text-red-600" /> Built from Scratch • Figma to Code
-                      </span>
-                    )}
-                    {project.id === "docuesign" && (
-                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200 flex items-center gap-1">
-                        <Server className="w-3 h-3 text-red-600" /> Render Deployed
-                      </span>
-                    )}
-                    {project.id === "appyminds-blog" && (
-                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1">
-                        <Sparkles className="w-3 h-3 text-red-600" /> Live CMS Feature
-                      </span>
-                    )}
-                    {project.id === "chotu-esp-app" && (
-                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1 font-semibold">
-                        <Smartphone className="w-3 h-3 text-rose-600" /> Flutter & Dart Mobile App
+                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/40 font-medium">
+                        ✨ Production Storefront & Ops
                       </span>
                     )}
                   </div>
 
-                  {/* Title & Icon */}
+                  {/* Title */}
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2.5 rounded-2xl bg-red-50 border border-red-100 flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <div className="p-2.5 rounded-xl bg-red-50 dark:bg-red-950/50 border border-red-100 dark:border-red-900/50 flex-shrink-0">
                       {getProjectIcon(project.id)}
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:text-red-600 transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
                       {project.title}
                     </h3>
                   </div>
 
-                  <p className="text-sm font-medium text-slate-700 mb-4">
+                  {/* Subtitle & Human Description */}
+                  <p className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                     {project.subtitle}
                   </p>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
                     {project.description}
                   </p>
 
-                  {/* Key Highlights list */}
+                  {/* Highlights */}
                   <div className="space-y-2 mb-6">
-                    <h4 className="text-xs font-mono text-slate-500 uppercase tracking-wider font-semibold">
-                      Key Engineering Highlights:
-                    </h4>
-                    <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
-                      {project.highlights.map((highlight, hIdx) => (
-                        <li key={hIdx} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                          <span className="leading-relaxed">{highlight}</span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block">
+                      Key Highlights & Contributions:
+                    </span>
+                    <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                      {project.highlights.map((h, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                          <span>{h}</span>
                         </li>
                       ))}
                     </ul>
@@ -135,11 +114,11 @@ export default function Projects() {
                 </div>
 
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200">
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100 dark:border-slate-800">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 font-medium"
+                      className="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400"
                     >
                       {tag}
                     </span>
@@ -147,22 +126,22 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Right Column: Key Metrics & Live Action Card */}
-              <div className="lg:col-span-4 flex flex-col gap-4">
-                {/* Metrics Card */}
+              {/* Right Column: Key Takeaways & Live Links */}
+              <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-4">
+                {/* Metrics Summary */}
                 {project.metrics && (
-                  <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-3">
-                    <span className="text-xs font-mono text-slate-500 uppercase tracking-wider block font-semibold">
-                      System Metrics
+                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/60 space-y-2.5">
+                    <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block">
+                      Quick Facts
                     </span>
-                    <div className="grid grid-cols-1 gap-2.5">
+                    <div className="space-y-2">
                       {project.metrics.map((m, mIdx) => (
                         <div
                           key={mIdx}
-                          className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200 shadow-sm"
+                          className="flex items-center justify-between p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-xs"
                         >
-                          <span className="text-xs text-slate-500">{m.label}</span>
-                          <span className="text-xs font-semibold text-red-600 font-mono">
+                          <span className="text-slate-500 dark:text-slate-400">{m.label}</span>
+                          <span className="font-mono font-semibold text-slate-900 dark:text-white">
                             {m.value}
                           </span>
                         </div>
@@ -171,16 +150,16 @@ export default function Projects() {
                   </div>
                 )}
 
-                {/* Live Action Buttons (Red Primary) */}
-                <div className="flex flex-col gap-3">
+                {/* Action Buttons */}
+                <div className="flex flex-col gap-2.5">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-red-600 hover:bg-red-500 text-white font-semibold text-sm transition-all shadow-md shadow-red-600/30 hover:shadow-red-600/50 hover:scale-[1.01]"
+                      className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-red-600 hover:bg-red-500 text-white font-semibold text-xs sm:text-sm transition-all shadow-md shadow-red-600/20 active:scale-98"
                     >
-                      <span>View Live Application</span>
+                      <span>Visit Live Application</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   )}
@@ -190,36 +169,14 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 hover:border-red-400 text-sm font-medium transition-all shadow-sm"
+                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-medium transition-all"
                     >
                       <Github className="w-4 h-4" />
-                      <span>Explore on GitHub</span>
+                      <span>View GitHub Profile</span>
                       <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                     </a>
                   )}
                 </div>
-
-                {/* Integration note banner */}
-                {project.id === "chotubot-platform" && (
-                  <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs text-red-900 leading-relaxed">
-                    💡 Built <strong>www.chotubot.com</strong> from scratch from Figma designs, including complete Inventory Control, Affiliate Marketing, International Delivery, and Razorpay payment webhooks.
-                  </div>
-                )}
-                {project.id === "chotu-esp-app" && (
-                  <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-900 leading-relaxed">
-                    💡 Companion mobile application in <strong>Flutter & Dart</strong> for wireless ESP32/IoT device provisioning, live sensor telemetry, and hardware control.
-                  </div>
-                )}
-                {project.id === "docuesign" && (
-                  <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs text-red-900 leading-relaxed">
-                    💡 Integrated directly with <strong>AppyMinds LMS</strong> for secure, automated agreement verification upon student onboarding.
-                  </div>
-                )}
-                {project.id === "appyminds-blog" && (
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed">
-                    💡 Powers the published content on <strong>appyminds.com/blog</strong> with CKEditor and automated SEO metadata.
-                  </div>
-                )}
               </div>
             </div>
           </ClassyCard>

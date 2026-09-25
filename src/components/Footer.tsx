@@ -30,11 +30,11 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
-              Full Stack Developer specializing in Next.js, React, TypeScript, Supabase, Flutter, and Razorpay. Proven experience building production-scale platforms (chotubot.com), digital signature SaaS (DocuEsign), and CMS engines.
+              Full Stack Developer specializing in Next.js, React, TypeScript, Node.js, Supabase, and Razorpay. Proven experience building production e-commerce platforms (Chotubot.com), digital signature SaaS (DocuEsign), and CMS engines.
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">
-              <Server className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
-              <span>Optimized for Render Web Service Deployment</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Available for full-time roles & projects</span>
             </div>
           </div>
 

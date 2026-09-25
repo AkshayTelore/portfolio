@@ -16,15 +16,15 @@ export interface BotMessage {
 export const INITIAL_BOT_MESSAGE: BotMessage = {
   id: "welcome",
   sender: "bot",
-  text: `👋 **Hi there! I'm Akshay's AI Assistant.**\n\nI can tell you everything about Akshay's background, production platforms (**Chotubot.com built from scratch**, **DocuEsign**, **AppyMinds Blog Engine**), mobile development in **Flutter & Dart (Chotu ESP)**, tech stack (**Next.js, Supabase, Razorpay**), agile workflows (**Jira Kanban**), or how to contact him!\n\nWhat would you like to explore?`,
+  text: `👋 **Hi there! I'm Akshay's Assistant.**\n\nI can help you learn more about Akshay's work on **Chotubot.com** (built at Dextop from Figma to production), **DocuEsign SaaS**, his tech stack (**React, Next.js, Node.js, Supabase, Razorpay, PayU, Shiprocket**), his education (**MCA 9.18 CGPA**), or how to get in touch.\n\nWhat would you like to explore?`,
   timestamp: "Just now",
   quickPrompts: [
-    "Download Resume PDF",
     "Work at Chotubot.com",
-    "Tell me about DocuEsign",
-    "Chotu ESP App (Flutter/Dart)",
-    "What is Akshay's tech stack?",
-    "Jira Kanban & Agile",
+    "Coupon & Affiliate systems",
+    "Razorpay & PayU payments",
+    "DocuEsign SaaS",
+    "Akshay's Tech Stack",
+    "Contact Akshay",
   ],
 };
 
@@ -44,27 +44,27 @@ export function answerAkshayQuestion(rawQuery: string): {
     query.includes("biodata")
   ) {
     return {
-      text: `📄 **Akshay Pandurang Telore — Official Resume (PDF)**\n\nYou can review and download Akshay's complete 2-page professional resume covering:\n\n• **Work Experience:** Dextop (www.chotubot.com built from scratch) & SASH Info (DocuEsign)\n• **Key Products:** Inventory & Affiliate Dashboards, International Delivery, Chotu ESP Mobile App (Flutter & Dart), AppyMinds Blog CMS\n• **Tech Stack:** Next.js, React, TypeScript, Supabase, Razorpay, PostgreSQL, Jira Kanban\n• **Academics:** MCA from MES Garware College, Pune (9.18 CGPA)\n• **Achievements:** 1st prize dance competition, varsity cricket player\n\nClick below to download or view the official PDF:`,
-      quickPrompts: ["Work at Chotubot.com", "Chotu ESP Flutter App", "DocuEsign details", "Contact Akshay"],
+      text: `📄 **Akshay Telore — Resume (PDF)**\n\nYou can download Akshay's complete professional resume covering:\n\n• **Experience:** Dextop Gadget Pvt. Ltd. (Chotubot.com full-stack e-commerce) & SASH Info (DocuEsign SaaS)\n• **Core Projects:** E-commerce storefront, coupons, affiliate tracking, inventory dashboard, DocuEsign, AppyMinds blog CMS\n• **Tech Stack:** React, Next.js, TypeScript, Node.js, Supabase, PostgreSQL, Razorpay, PayU, Shiprocket, GitLab CI/CD\n• **Education:** MCA from Garware College, Pune with distinction (9.18 CGPA)\n\nClick below to download the PDF:`,
+      quickPrompts: ["Work at Chotubot.com", "Razorpay & PayU payments", "DocuEsign SaaS", "Contact Akshay"],
       actionLink: {
-        label: "📥 Download Akshay Telore Resume (PDF)",
+        label: "📥 Download Resume (PDF)",
         url: "/Akshay_Telore_Resume.pdf",
         isExternal: true,
       },
     };
   }
 
-  // 1. Chotubot.com / Dextop experience
+  // 1. Chotubot.com / Dextop overall experience
   if (
     query.includes("chotubot") ||
     query.includes("dextop") ||
-    query.includes("from scratch") ||
-    query.includes("figma") ||
+    query.includes("ecommerce") ||
+    query.includes("e-commerce") ||
     query.includes("current role")
   ) {
     return {
-      text: `🚀 **Associate Software Developer at Dextop — www.chotubot.com (Dec 2025 - Present)**\n\nAkshay has made substantial engineering contributions at Dextop:\n\n• **Built from Scratch:** Developed the entire **www.chotubot.com** web platform from scratch as lead full-stack developer.\n• **Figma to Code:** Translated complex, intricate Figma UI/UX designs into pixel-perfect, responsive Next.js & TypeScript components.\n• **Inventory Management Dashboard:** Engineered a real-time inventory management system for product stock levels, warehouse alerts, and catalog sync.\n• **Affiliate Marketing Feature:** Built complete affiliate marketing architecture with custom referral tracking links, conversion analytics, and commission ledgers.\n• **International Delivery:** Implemented international shipping compliance, cross-border fulfillment, dynamic currency conversion, and global tracking checkpoints.\n• **Payment Gateways:** Integrated **Razorpay** with HMAC SHA256 webhook state verification and automated refund routines.\n• **Chotu ESP Mobile App:** Developed the companion mobile app in **Flutter and Dart** for smart ESP/IoT hardware management.\n• **Agile Delivery:** Leveraged **Jira Kanban boards** for sprint planning, task tracking, and iterative releases.`,
-      quickPrompts: ["Chotu ESP Flutter App", "Inventory & Affiliate details", "DocuEsign platform", "Contact Akshay"],
+      text: `🚀 **Full Stack Developer at Dextop Gadget Pvt. Ltd. — Chotubot.com**\n\nAkshay was involved in Chotubot.com across the entire lifecycle from UI implementation to backend development and production deployment:\n\n• **Figma to Code:** Converted Figma designs into responsive React/Next.js interfaces for Hero, Buy Now, Chotu Special, Modes, Creativity, Instagram/IG, and checkout sections.\n• **Coupon System:** Built multi-tier discount engine (fixed, percentage, free shipping) with real-time validation and visit tracking.\n• **Affiliate Marketing:** Built referral tracking via storage, visitor identification, and database conversion records.\n• **Payments:** Integrated Razorpay (with Magic Checkout) and PayU with server-side webhook verification for interrupted flow reconciliation.\n• **Shipping & Logistics:** Implemented international multi-currency pricing and Shiprocket fulfillment for domestic orders.\n• **Dashboard:** Contributed to internal inventory and order management dashboard.\n• **Backend & DevOps:** Node.js, Supabase/PostgreSQL with RLS, and GitLab CI/CD release pipelines.`,
+      quickPrompts: ["Coupon & Affiliate systems", "Razorpay & PayU payments", "DocuEsign SaaS", "Contact Akshay"],
       actionLink: {
         label: "Visit www.chotubot.com",
         url: "https://www.chotubot.com",
@@ -73,79 +73,102 @@ export function answerAkshayQuestion(rawQuery: string): {
     };
   }
 
-  // 2. Chotu ESP App / Flutter / Dart / Mobile / IoT
+  // 2. Frontend Development & Figma to Code
   if (
-    query.includes("flutter") ||
-    query.includes("dart") ||
-    query.includes("esp") ||
-    query.includes("mobile") ||
-    query.includes("iot") ||
-    query.includes("app")
+    query.includes("figma") ||
+    query.includes("frontend") ||
+    query.includes("ui") ||
+    query.includes("responsive") ||
+    query.includes("performance") ||
+    query.includes("lazy")
   ) {
     return {
-      text: `📱 **Chotu ESP Mobile Application (Flutter & Dart)**\n\nAkshay engineered the companion mobile application for Chotu's smart hardware ecosystem:\n\n• **Tech Stack:** Flutter & Dart cross-platform mobile development for iOS & Android.\n• **Hardware Provisioning:** Seamless Wi-Fi credential provisioning, Bluetooth/AP device discovery, and hardware configuration for ESP32/ESP microcontrollers.\n• **Real-time Telemetry:** Live telemetry monitoring, sensor status, switch controls, and cloud state synchronization.\n• **Agile Management:** Maintained feature delivery and sprints using **Jira Kanban boards**.`,
-      quickPrompts: ["Chotubot.com details", "DocuEsign details", "Tech stack", "Contact Akshay"],
-      actionLink: {
-        label: "Visit Chotubot.com",
-        url: "https://www.chotubot.com",
-        isExternal: true,
-      },
+      text: `🎨 **Frontend Engineering on Chotubot.com:**\n\nAkshay implemented pixel-accurate responsive web pages directly from Figma:\n\n• **Key Sections Developed:** Hero Section, Buy Now Section, Chotu Special Section, Modes Section, Creativity Section, Instagram/IG Section, and Product/Checkout flows.\n• **Responsive Layouts:** Custom tailored layouts for desktop, tablet, and mobile.\n• **Performance Optimizations:** Intersection Observer, lazy-loaded videos, WebP asset compression, code splitting, and component-based architecture for smooth 60fps rendering.`,
+      quickPrompts: ["Work at Chotubot.com", "Coupon & Affiliate systems", "Akshay's Tech Stack", "Contact Akshay"],
     };
   }
 
-  // 3. Inventory Management & Affiliate Marketing
+  // 3. Coupon Code System & Affiliate Marketing
   if (
-    query.includes("inventory") ||
+    query.includes("coupon") ||
+    query.includes("discount") ||
     query.includes("affiliate") ||
     query.includes("referral") ||
-    query.includes("commission") ||
+    query.includes("commission")
+  ) {
+    return {
+      text: `🎟️ **Coupon Code System & Affiliate Marketing (Chotubot.com):**\n\n• **Coupon System:**\n  - Supported coupon types: Fixed discount, Percentage discount, and Free shipping.\n  - Real-time coupon validation, expiry/active status checks, and discount calculations during checkout.\n  - Database structure, invalid coupon prevention, and coupon visit tracking.\n\n• **Affiliate Marketing:**\n  - Tracks affiliate referrals and attributes customer orders to partners.\n  - Visitor identification using localStorage / sessionStorage.\n  - Coupon-affiliate relationships and database backend processing.`,
+      quickPrompts: ["Razorpay & PayU payments", "Shiprocket & International shipping", "Work at Chotubot.com", "Contact Akshay"],
+    };
+  }
+
+  // 4. Payments: Razorpay, PayU, and Webhook Reconciliation
+  if (
+    query.includes("payment") ||
+    query.includes("razorpay") ||
+    query.includes("payu") ||
+    query.includes("webhook") ||
+    query.includes("checkout")
+  ) {
+    return {
+      text: `💳 **Payment Gateway Integrations (Chotubot.com):**\n\n• **Razorpay:** Order creation, payment initiation, Razorpay Magic Checkout, payment verification, and automated refund handling.\n• **Interrupted Flow Problem Solved:** Rather than relying solely on the client response, Akshay built server-side verification and webhook handling to guarantee order states are updated accurately even if the user drops connection or closes their browser.\n• **PayU Integration:** Payment creation, form submission, backend payment processing, and status handling as an alternate checkout provider.`,
+      quickPrompts: ["Shiprocket & International shipping", "Work at Chotubot.com", "Inventory dashboard", "Contact Akshay"],
+    };
+  }
+
+  // 5. Shipping: Shiprocket & International Currency
+  if (
+    query.includes("shipping") ||
+    query.includes("shiprocket") ||
+    query.includes("delivery") ||
+    query.includes("international") ||
+    query.includes("currency")
+  ) {
+    return {
+      text: `📦 **Logistics, Shiprocket & International Shipping (Chotubot.com):**\n\n• **Shiprocket Integration:** Automated Indian domestic orders, customer address validation, shipping details, shipment creation, and tracking information.\n• **International Checkout:** Country selection, REST Countries API, exchange-rate APIs for live currency conversion, cross-border shipping charges, and final order calculation.`,
+      quickPrompts: ["Razorpay & PayU payments", "Inventory dashboard", "Work at Chotubot.com", "Contact Akshay"],
+    };
+  }
+
+  // 6. Inventory & Order Management Dashboard
+  if (
+    query.includes("inventory") ||
+    query.includes("dashboard") ||
+    query.includes("order management") ||
     query.includes("stock")
   ) {
     return {
-      text: `📦 **Inventory Management & Affiliate Marketing Systems:**\n\nBuilt by Akshay for **chotubot.com**:\n\n• **Inventory Management Dashboard:**\n  - Real-time stock level monitoring and low-inventory alerts.\n  - Multi-warehouse fulfillment routing and product catalog synchronization.\n  - Automated restock notifications and inventory audits.\n\n• **Affiliate Marketing Engine:**\n  - Unique affiliate referral URL and code generation.\n  - Real-time click tracking, conversion attribution, and cookie-based tracking.\n  - Commission calculation ledger, affiliate analytics dashboard, and payout workflows.`,
-      quickPrompts: ["International delivery", "Built Chotubot from scratch", "Tech stack", "Contact Akshay"],
+      text: `📊 **Inventory & Order Management Dashboard:**\n\nContributed to the internal operations tool at Dextop to manage:\n\n• Products and catalog details.\n• Real-time stock counts and inventory updates.\n• Orders, payment verification status, and fulfillment tracking.\n• Customer and shipping details across both frontend UI and backend services.`,
+      quickPrompts: ["Work at Chotubot.com", "Supabase & PostgreSQL", "Akshay's Tech Stack", "Contact Akshay"],
     };
   }
 
-  // 4. International Delivery / Shipping / Global Logistics
+  // 7. Supabase, PostgreSQL & GitLab CI/CD
   if (
-    query.includes("international") ||
-    query.includes("delivery") ||
-    query.includes("shipping") ||
-    query.includes("logistics")
+    query.includes("supabase") ||
+    query.includes("postgres") ||
+    query.includes("database") ||
+    query.includes("gitlab") ||
+    query.includes("ci/cd") ||
+    query.includes("git")
   ) {
     return {
-      text: `🌍 **International Delivery & Logistics Engine:**\n\nEngineered by Akshay for **chotubot.com**:\n\n• **Cross-Border Delivery:** Implemented international shipping rules, customs compliance fields, and multi-carrier API integration.\n• **Dynamic Currency Conversion:** Real-time exchange rate conversion allowing international customers to pay in their localized currencies.\n• **Live Tracking:** Checkpoint tracking from warehouse dispatch to customs clearance and final doorstep delivery.`,
-      quickPrompts: ["Razorpay & Payments", "Chotubot Platform", "Contact Akshay"],
+      text: `🗄️ **Database Architecture & DevOps at Dextop:**\n\n• **Supabase & PostgreSQL:** Designed tables and policies for orders, products, coupons, coupon visits, shipping costs, customer information, and affiliate tracking with Row Level Security (RLS).\n• **GitLab CI/CD:** Feature branching, bug-fix branches, pull/merge requests, code reviews, and automated build/deployment pipelines across dev and prod environments.`,
+      quickPrompts: ["Work at Chotubot.com", "Razorpay & PayU payments", "Akshay's Tech Stack", "Contact Akshay"],
     };
   }
 
-  // 5. Jira / Kanban / Agile Task Management
-  if (
-    query.includes("jira") ||
-    query.includes("kanban") ||
-    query.includes("agile") ||
-    query.includes("sprint") ||
-    query.includes("task management")
-  ) {
-    return {
-      text: `📋 **Agile & Task Management with Jira Kanban:**\n\nAkshay is well-versed in professional agile delivery workflows:\n\n• **Jira Kanban Boards:** End-to-end task lifecycle management, WIP (Work In Progress) limits, backlog grooming, and sprint tracking.\n• **Bug Triage & Releases:** Milestone planning, issue prioritization, and automated status syncing with Git/GitLab commits.\n• **Collaborative Workflows:** Coordinating cross-functional deliverables between design (Figma), hardware engineering, and backend services.`,
-      quickPrompts: ["Work at Chotubot", "Tech Stack", "Contact Akshay"],
-    };
-  }
-
-  // 6. DocuEsign Project
+  // 8. DocuEsign Project
   if (
     query.includes("docuesign") ||
     query.includes("docu-esign") ||
     query.includes("esign") ||
     query.includes("signature") ||
-    query.includes("drag-drop") ||
     query.includes("document signing")
   ) {
     return {
-      text: `📄 **DocuEsign — Digital Document Signing Platform**\n\nAkshay built this during his Full Stack Developer Internship at **SASH Info Pvt. Ltd**:\n\n• **Core Features:** Interactive drag-and-drop PDF signature & initials placement with coordinate mapping.\n• **Security & Verification:** Two-Factor OTP & email verification before committing signatures.\n• **Audit Trail & Forensics:** Captures IP geolocation, browser/device metadata, and chronological activity ledger for legal compliance.\n• **Credit Quota System:** Organization-level signing credit deduction.\n• **AppyMinds LMS Integration:** Direct bridge with AppyMinds LMS for auto-generating agreements upon student enrollment.\n• **Tech Stack:** Next.js, React.js, MongoDB, Redux, Bootstrap, NextAuth, REST APIs.`,
-      quickPrompts: ["Open DocuEsign Live", "Tell me about AppyMinds Blog", "Akshay's tech stack", "Contact Akshay"],
+      text: `📄 **DocuEsign — Digital Document Signing Platform:**\n\nBuilt by Akshay during his internship at **SASH Info Pvt. Ltd**:\n\n• **Drag-and-Drop Placement:** Users can drag signatures and initials anywhere onto PDF documents.\n• **Email OTP Verification:** Two-factor verification ensures that only intended recipients can sign.\n• **Audit Trail:** Logs timestamps, IP addresses, and device info for complete legal verification.\n• **LMS Integration:** Linked directly with the AppyMinds LMS platform so agreements are sent automatically upon student enrollment.\n• **Tech Stack:** Next.js, React, MongoDB, Redux Toolkit, and REST APIs.`,
+      quickPrompts: ["Work at Chotubot.com", "AppyMinds Blog CMS", "Akshay's Tech Stack", "Contact Akshay"],
       actionLink: {
         label: "Open DocuEsign on AppyMinds",
         url: "https://appyminds.com/products/esignsure",
@@ -154,59 +177,35 @@ export function answerAkshayQuestion(rawQuery: string): {
     };
   }
 
-  // 7. AppyMinds Blog Management
+  // 9. AppyMinds Blog Management
   if (
     query.includes("appyminds") ||
     query.includes("blog") ||
     query.includes("cms") ||
-    query.includes("ckeditor") ||
-    query.includes("admin panel")
+    query.includes("ckeditor")
   ) {
     return {
-      text: `✍️ **Blog Management Feature — AppyMinds.com**\n\nAkshay architected a complete blog management admin panel and public-facing engine for **AppyMinds.com** (Feb 2025 – Mar 2025):\n\n• **Admin Panel:** Secure JWT login with role-based access control (RBAC).\n• **Full CRUD Engine:** Staging drafts, publishing, archiving, category tagging, and scheduled unpublishing.\n• **HTML Editor:** Integrated CKEditor WYSIWYG with automatic slug generation and featured image validations.\n• **SEO Optimization:** Dynamic OpenGraph tags, meta descriptions, image alt tags, and sitemap synchronization.\n• **Live Site Integration:** Directly connected the admin panel to the live production AppyMinds website at appyminds.com/blog.`,
-      quickPrompts: ["View Live Blog", "Tell me about Chotubot.com", "What skills does Akshay have?", "Contact Akshay"],
+      text: `✍️ **AppyMinds Blog & Content CMS:**\n\nAkshay built an intuitive blog management portal and public reading experience for **AppyMinds.com**:\n\n• **Admin Portal:** Secure login with role permissions for writers and editors.\n• **Rich Text Writing:** Integrated CKEditor WYSIWYG for formatting, links, and image uploads.\n• **Automated SEO:** Automatic generation of OpenGraph social previews, meta descriptions, and clean URLs.\n• **Live Deployment:** Directly powers the published articles at appyminds.com/blog.`,
+      quickPrompts: ["DocuEsign SaaS", "Work at Chotubot.com", "Akshay's Tech Stack", "Contact Akshay"],
       actionLink: {
-        label: "Visit Live AppyMinds Blog",
+        label: "Visit AppyMinds Blog",
         url: "https://appyminds.com/blog",
         isExternal: true,
       },
     };
   }
 
-  // 8. SASH Info Internship
-  if (query.includes("sash") || query.includes("intern") || query.includes("internship")) {
-    return {
-      text: `🏢 **Full Stack Developer Intern at SASH Info Pvt. Ltd (July 2025 – Oct 2025)**\n\n• Worked on flagship products: **DocuEsign**, **eductrl.com**, and **clientctrl.app**.\n• Built secure document upload, signature coordinates, OTP/email verification, and credit tracking.\n• Implemented device/IP logging and real-time activity status transitions.\n• Integrated DocuEsign into AppyMinds LMS.\n• Used Next.js, React, Bootstrap, Redux Toolkit, and tested endpoints thoroughly with Postman.`,
-      quickPrompts: ["DocuEsign details", "AppyMinds Blog", "Tech Stack", "Contact Akshay"],
-    };
-  }
-
-  // 9. Tech Stack & Skills
+  // 10. Tech Stack & Skills
   if (
     query.includes("skill") ||
     query.includes("tech") ||
     query.includes("stack") ||
     query.includes("programming") ||
-    query.includes("frontend") ||
-    query.includes("backend") ||
     query.includes("language")
   ) {
     return {
-      text: `🛠️ **Akshay's Core Technical Arsenal:**\n\n• **Frontend & Mobile:** Next.js (App Router), React.js, TypeScript, **Flutter & Dart (Mobile/IoT)**, Tailwind CSS, Figma to Code, Redux Toolkit, Bootstrap.\n• **Backend & Distributed Systems:** Node.js, Express.js, Supabase (with RLS), RESTful API Architecture, NextAuth, JWT, Python, C/C++.\n• **E-Commerce & Enterprise:** Inventory Management Dashboards, Affiliate Marketing Engines, International Delivery Workflows.\n• **Databases:** PostgreSQL, MongoDB, Supabase Database.\n• **Payments:** Razorpay (Signature Verification, Webhooks & Automated Refunds), PayU, Currency Conversion APIs.\n• **DevOps & Agile:** Jira Kanban Boards, Git, GitHub, GitLab CI/CD, Render, Postman, VS Code.`,
-      quickPrompts: ["Built Chotubot from scratch", "Chotu ESP Flutter App", "DocuEsign", "Contact Akshay"],
-    };
-  }
-
-  // 10. Payments / Razorpay / Webhooks
-  if (
-    query.includes("payment") ||
-    query.includes("razorpay") ||
-    query.includes("payu") ||
-    query.includes("webhook")
-  ) {
-    return {
-      text: `💳 **Payments & Gateway Engineering:**\n\nAkshay has deep production experience with:\n\n• **Razorpay:** Full checkout integration, HMAC SHA256 signature verification, webhook processing for payment captured / failed events, and automated refunds on chotubot.com.\n• **Multi-Currency:** Dynamic currency conversion for international cross-border transactions.\n• **Order Management:** Real-time synchronization between payment states, inventory deductions, and shipping status.`,
-      quickPrompts: ["Chotubot Platform", "Inventory & Affiliate", "Contact Akshay"],
+      text: `🛠️ **Akshay's Core Technical Stack:**\n\n• **Frontend:** React, Next.js, TypeScript, Tailwind CSS, HTML5, CSS3, Intersection Observer, Lazy Loading, WebP optimization.\n• **Backend & APIs:** Node.js, Express, Supabase, PostgreSQL, REST APIs, NextAuth, JWT.\n• **Payments:** Razorpay (Magic Checkout, server webhooks & refunds), PayU.\n• **E-Commerce & Logistics:** Coupons, Affiliate Tracking, Shiprocket Fulfillment, International Currency & Shipping.\n• **Databases:** PostgreSQL, Supabase Database, MongoDB.\n• **DevOps & Collaboration:** GitLab CI/CD, Git, GitHub, Jira Kanban, Postman.`,
+      quickPrompts: ["Work at Chotubot.com", "Razorpay & PayU payments", "DocuEsign SaaS", "Contact Akshay"],
     };
   }
 
@@ -218,11 +217,19 @@ export function answerAkshayQuestion(rawQuery: string): {
     query.includes("mca") ||
     query.includes("cgpa") ||
     query.includes("university") ||
-    query.includes("study")
+    query.includes("study") ||
+    query.includes("physics") ||
+    query.includes("bsc") ||
+    query.includes("bachelor") ||
+    query.includes("hsc") ||
+    query.includes("12th") ||
+    query.includes("ssc") ||
+    query.includes("10th") ||
+    query.includes("school")
   ) {
     return {
-      text: `🎓 **Education & Academics:**\n\n• **Degree:** Master of Computer Applications (MCA)\n• **Institution:** MES Abasaheb Garware College, Pune\n• **Timeline:** 2023 – 2025\n• **Academic Record:** CGPA **9.18** (Graduated with distinction!)\n• **Highlights:** College Cricket Team (2 years) & Winner of 1st Prize in Group Dance Competition.`,
-      quickPrompts: ["Sports & Achievements", "Work experience", "DocuEsign", "Contact Akshay"],
+      text: `🎓 **Akshay's Complete Educational Background:**\n\n1. **Master of Computer Applications (MCA):**\n   • **College:** MES Abasaheb Garware College, Pune (2023 – 2025)\n   • **Score:** **9.18 CGPA** (Graduated with distinction!)\n\n2. **Bachelor of Science (B.Sc.) in Physics:**\n   • **College:** New Arts, Commerce and Science College, Shevgaon\n   • **Score:** **80.42%** | **8.86 CGPA**\n\n3. **Higher Secondary Certificate (HSC - 12th):**\n   • **College:** New Arts, Commerce and Science College, Shevgaon\n   • **Score:** **69.85%** (Science Stream)\n\n4. **Secondary School Certificate (SSC - 10th):**\n   • **School:** Chapadgaon Highschool, Chapadgaon\n   • **Score:** **88.40%** (Distinction)\n\n• **Campus Highlights:** College cricket team player for 2 years & 1st prize in university group dance competition.`,
+      quickPrompts: ["Work at Chotubot.com", "Akshay's Tech Stack", "Contact Akshay"],
     };
   }
 
@@ -231,55 +238,19 @@ export function answerAkshayQuestion(rawQuery: string): {
     query.includes("contact") ||
     query.includes("email") ||
     query.includes("phone") ||
-    query.includes("mobile") ||
     query.includes("reach") ||
     query.includes("hire") ||
     query.includes("linkedin") ||
     query.includes("github") ||
-    query.includes("location") ||
-    query.includes("where")
+    query.includes("location")
   ) {
     return {
-      text: `📬 **Connect with Akshay Telore:**\n\n• **Email:** [teloreakshay1000@gmail.com](mailto:teloreakshay1000@gmail.com)\n• **Phone:** [+91 9172925369](tel:+919172925369)\n• **Location:** Karve Nagar, Pune, Maharashtra 411052, India\n• **LinkedIn:** [linkedin.com/in/akshay-telore-209934251](https://www.linkedin.com/in/akshay-telore-209934251)\n• **GitHub:** [github.com/AkshayTelore](https://github.com/AkshayTelore)\n\n✨ Feel free to send a message via the Contact section below!`,
-      quickPrompts: ["Open GitHub", "Open LinkedIn", "Akshay's Projects", "Tech Stack"],
-      actionLink: {
-        label: "Visit Akshay's GitHub Profile",
-        url: "https://github.com/AkshayTelore",
-        isExternal: true,
-      },
+      text: `📬 **Contact Akshay Telore:**\n\n• **Email:** [teloreakshay1000@gmail.com](mailto:teloreakshay1000@gmail.com)\n• **Phone:** [+91 9172925369](tel:+919172925369)\n• **Location:** Karve Nagar, Pune, Maharashtra, India\n• **LinkedIn:** [linkedin.com/in/akshay-telore-209934251](https://www.linkedin.com/in/akshay-telore-209934251)\n• **GitHub:** [github.com/AkshayTelore](https://github.com/AkshayTelore)\n\nFeel free to email Akshay directly or connect on LinkedIn!`,
+      quickPrompts: ["Download Resume PDF", "Work at Chotubot.com", "Akshay's Tech Stack"],
     };
   }
 
-  // 13. Deployment on Render
-  if (
-    query.includes("render") ||
-    query.includes("deploy") ||
-    query.includes("deployment") ||
-    query.includes("host") ||
-    query.includes("server")
-  ) {
-    return {
-      text: `🚀 **Render Deployment Setup:**\n\nThis portfolio and Akshay's applications are configured specifically for **Render**:\n\n• **Web Service:** Configured via \`render.yaml\` with dynamic port binding (\`PORT\` env variable).\n• **Build Command:** \`npm install && npm run build\`\n• **Start Command:** \`npm start\`\n• **Production-Optimized:** Next.js standalone caching and asset compression.`,
-      quickPrompts: ["Tech Stack", "DocuEsign", "AppyMinds Blog", "Contact Akshay"],
-    };
-  }
-
-  // 14. Achievements & Hobbies
-  if (
-    query.includes("achievement") ||
-    query.includes("cricket") ||
-    query.includes("dance") ||
-    query.includes("hobby") ||
-    query.includes("sports") ||
-    query.includes("personal")
-  ) {
-    return {
-      text: `🏆 **Achievements & Personal Life:**\n\n• 🥇 **1st Prize in Group Dance Competition:** Won first place in college annual festival with official merit certificate.\n• 🏏 **College Cricket Team Player:** Represented MES Abasaheb Garware College in the 2nd & 3rd years.\n• 🏅 **University Cricket – District Level:** Selected for university under-matches at district level.\n• 🎮 **Hobbies:** Watching tech cinema & talks, playing video games, and competitive cricket.\n• 🗣️ **Languages:** Marathi, English, Hindi.`,
-      quickPrompts: ["Education & CGPA", "Work experience", "Tech Stack", "Contact Akshay"],
-    };
-  }
-
-  // 15. General About Me / Introduction
+  // 13. General About Me / Introduction
   if (
     query.includes("who is") ||
     query.includes("about") ||
@@ -290,19 +261,19 @@ export function answerAkshayQuestion(rawQuery: string): {
     query.includes("akshay")
   ) {
     return {
-      text: `👋 **Meet Akshay Pandurang Telore!**\n\nAkshay is a Pune-based **Full Stack Developer** specializing in **Next.js, React.js, TypeScript, Node.js, Supabase, Flutter, and Dart**.\n\nHe has built:\n1. **www.chotubot.com from scratch**: Complete web platform, Figma design implementation, Inventory Management dashboard, Affiliate Marketing, International Delivery, and the Chotu ESP IoT mobile app in Flutter.\n2. **DocuEsign**: Secure digital signing platform with drag-drop signatures and OTP 2FA.\n3. **AppyMinds Blog Engine**: Enterprise CMS with CKEditor and live publishing.\n\nHe uses **Jira Kanban boards** for agile delivery, completed his MCA with a **9.18 CGPA**, and is open to high-impact opportunities!`,
-      quickPrompts: ["Tell me about Chotubot.com", "Chotu ESP Flutter App", "DocuEsign", "Contact Akshay"],
+      text: `👋 **Meet Akshay Telore!**\n\n"At Dextop, I worked on Chotubot.com as a Full Stack Developer. I was involved in the project from UI implementation to backend development and production deployment. I converted Figma designs into responsive React/Next.js interfaces, implemented features such as coupon codes and affiliate marketing, integrated Razorpay and PayU payments, worked on international currency and shipping, and contributed to the inventory and order management dashboard. On the backend, I worked with Node.js, Supabase and PostgreSQL, and I also worked with GitLab and CI/CD for managing and deploying the application."\n\nAkshay completed his MCA with a **9.18 CGPA** (Distinction) and is open to full-time software engineering roles!`,
+      quickPrompts: ["Work at Chotubot.com", "Razorpay & PayU payments", "DocuEsign SaaS", "Contact Akshay"],
     };
   }
 
   // Default Fallback
   return {
-    text: `Thanks for asking! I'm trained on Akshay Telore's full background. You can ask me about:\n\n• **www.chotubot.com** (Built from scratch, Inventory & Affiliate dashboards, International delivery)\n• **Chotu ESP App** (Flutter & Dart IoT companion app)\n• **DocuEsign** (Digital document signing platform)\n• **AppyMinds.com** (Blog management feature & admin suite)\n• **Agile Delivery** (Jira Kanban boards)\n• **Technical Skills** (Next.js, TypeScript, Supabase, Flutter, Razorpay)\n• **Education** (MCA, MES Garware College, 9.18 CGPA)\n• **Contact Details** (Email, Phone, Pune location, LinkedIn, GitHub)`,
+    text: `Thanks for asking! I can tell you about:\n\n• **Chotubot.com** (Figma to code, coupons, affiliate tracking, Razorpay & PayU, Shiprocket)\n• **DocuEsign** (Digital document signing platform)\n• **AppyMinds Blog** (Custom CMS and editor)\n• **Tech Stack** (React, Next.js, Node.js, TypeScript, Supabase, PostgreSQL)\n• **Academics** (MCA 9.18 CGPA, Garware College)\n• **Contact** (Email, phone, LinkedIn, GitHub)`,
     quickPrompts: [
       "Work at Chotubot.com",
-      "Chotu ESP Flutter App",
-      "Tell me about DocuEsign",
-      "Inventory & Affiliate features",
+      "Coupon & Affiliate systems",
+      "Razorpay & PayU payments",
+      "Download Resume PDF",
     ],
   };
 }

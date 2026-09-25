@@ -6,9 +6,9 @@ import {
   Code2,
   Database,
   CreditCard,
-  Wrench,
+  ShoppingBag,
+  GitBranch,
   Sparkles,
-  Server,
 } from "lucide-react";
 import ClassyCard from "./ClassyCard";
 
@@ -16,30 +16,30 @@ export default function Skills() {
   const getCategoryIcon = (index: number) => {
     switch (index) {
       case 0:
-        return <Code2 className="w-5 h-5 text-red-600" />;
+        return <Code2 className="w-5 h-5 text-red-600 dark:text-red-400" />;
       case 1:
-        return <Server className="w-5 h-5 text-rose-600" />;
+        return <Database className="w-5 h-5 text-red-600 dark:text-red-400" />;
       case 2:
-        return <Database className="w-5 h-5 text-red-600" />;
+        return <CreditCard className="w-5 h-5 text-red-600 dark:text-red-400" />;
       case 3:
-        return <CreditCard className="w-5 h-5 text-orange-600" />;
+        return <ShoppingBag className="w-5 h-5 text-red-600 dark:text-red-400" />;
       default:
-        return <Wrench className="w-5 h-5 text-red-600" />;
+        return <GitBranch className="w-5 h-5 text-red-600 dark:text-red-400" />;
     }
   };
 
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-mono text-red-700 uppercase tracking-widest px-3 py-1 rounded-full bg-red-50 border border-red-200">
-          Core Capabilities
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <span className="text-xs font-mono text-red-600 dark:text-red-400 uppercase tracking-widest px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40">
+          Skills & Technologies
         </span>
-        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-4 mb-4">
-          Skills & Technical Expertise
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-4 mb-3">
+          Technologies I Work With Daily
         </h2>
-        <p className="text-sm sm:text-base text-slate-600">
-          A comprehensive toolkit refined across production web applications, secure APIs, databases, mobile apps, and DevOps.
+        <p className="text-base text-slate-600 dark:text-slate-400">
+          The practical frameworks, payment systems, databases, and development tools I use to build scalable e-commerce and web platforms.
         </p>
       </div>
 
@@ -47,62 +47,37 @@ export default function Skills() {
         {PORTFOLIO_DATA.skills.categories.map((cat, idx) => (
           <ClassyCard
             key={cat.title}
-            delay={idx * 110}
-            className="glass-panel p-6 sm:p-7 border border-slate-200 hover:border-red-500/40 flex flex-col justify-between shadow-sm hover:shadow-xl"
+            delay={idx * 100}
+            className="glass-panel p-6 sm:p-7 border border-slate-200 dark:border-slate-800 dark:bg-slate-900/80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all"
           >
             <div>
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-3">
-                <div className="p-2.5 rounded-xl bg-red-50 border border-red-100">
+                <div className="p-2.5 rounded-xl bg-red-50 dark:bg-red-950/50 border border-red-100 dark:border-red-900/50 flex-shrink-0">
                   {getCategoryIcon(idx)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">{cat.title}</h3>
-                  <p className="text-xs text-slate-500">{cat.description}</p>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">{cat.title}</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{cat.description}</p>
                 </div>
               </div>
 
-              {/* Skills badges & indicators */}
-              <div className="mt-5 space-y-3">
+              {/* Skills Tags */}
+              <div className="flex flex-wrap gap-2 mt-5">
                 {cat.skills.map((skill) => (
-                  <div key={skill.name} className="space-y-1">
-                    <div className="flex items-center justify-between text-xs">
-                      <span
-                        className={`font-medium ${
-                          skill.highlight
-                            ? "text-red-700 font-semibold flex items-center gap-1.5"
-                            : "text-slate-700"
-                        }`}
-                      >
-                        {skill.name}
-                        {skill.highlight && (
-                          <Sparkles className="w-3 h-3 text-red-600" />
-                        )}
-                      </span>
-                      <span className="font-mono text-slate-400 text-[11px]">
-                        {skill.level}%
-                      </span>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
-                      <div
-                        className={`h-full rounded-full transition-all duration-1000 ${
-                          skill.highlight
-                            ? "bg-gradient-to-r from-red-600 to-rose-500"
-                            : "bg-slate-400"
-                        }`}
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
+                  <span
+                    key={skill.name}
+                    className={`text-xs font-mono px-3 py-1.5 rounded-lg border transition-colors flex items-center gap-1.5 ${
+                      skill.highlight
+                        ? "bg-red-50 dark:bg-red-950/40 border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 font-medium"
+                        : "bg-slate-100 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300"
+                    }`}
+                  >
+                    {skill.highlight && <Sparkles className="w-3 h-3 text-red-600 dark:text-red-400 flex-shrink-0" />}
+                    <span>{skill.name}</span>
+                  </span>
                 ))}
               </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-[11px] font-mono text-slate-500">
-              <span>Verified Production</span>
-              <span className="text-red-600 font-semibold">Active</span>
             </div>
           </ClassyCard>
         ))}
