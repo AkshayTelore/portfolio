@@ -60,10 +60,12 @@ export function answerAkshayQuestion(rawQuery: string): {
     query.includes("dextop") ||
     query.includes("ecommerce") ||
     query.includes("e-commerce") ||
-    query.includes("current role")
+    query.includes("current role") ||
+    query.includes("previous role") ||
+    query.includes("experience")
   ) {
     return {
-      text: `🚀 **Full Stack Developer at Dextop Gadget Pvt. Ltd. — Chotubot.com**\n\nAkshay was involved in Chotubot.com across the entire lifecycle from UI implementation to backend development and production deployment:\n\n• **Figma to Code:** Converted Figma designs into responsive React/Next.js interfaces for Hero, Buy Now, Chotu Special, Modes, Creativity, Instagram/IG, and checkout sections.\n• **Coupon System:** Built multi-tier discount engine (fixed, percentage, free shipping) with real-time validation and visit tracking.\n• **Affiliate Marketing:** Built referral tracking via storage, visitor identification, and database conversion records.\n• **Payments:** Integrated Razorpay (with Magic Checkout) and PayU with server-side webhook verification for interrupted flow reconciliation.\n• **Shipping & Logistics:** Implemented international multi-currency pricing and Shiprocket fulfillment for domestic orders.\n• **Dashboard:** Contributed to internal inventory and order management dashboard.\n• **Backend & DevOps:** Node.js, Supabase/PostgreSQL with RLS, and GitLab CI/CD release pipelines.`,
+      text: `🚀 **Full Stack Developer at Dextop Gadget Pvt. Ltd. (Dec 2025 – 23 Sep 2026, Completed) — Chotubot.com**\n\nAkshay was involved in Chotubot.com across the entire lifecycle from UI implementation to backend development and production deployment:\n\n• **Figma to Code:** Converted Figma designs into responsive React/Next.js interfaces for Hero, Buy Now, Chotu Special, Modes, Creativity, Instagram/IG, and checkout sections.\n• **Coupon System:** Built multi-tier discount engine (fixed, percentage, free shipping) with real-time validation and visit tracking.\n• **Affiliate Marketing:** Built referral tracking via storage, visitor identification, and database conversion records.\n• **Payments:** Integrated Razorpay (with Magic Checkout) and PayU with server-side webhook verification for interrupted flow reconciliation.\n• **Shipping & Logistics:** Implemented international multi-currency pricing and Shiprocket fulfillment for domestic orders.\n• **Dashboard:** Contributed to internal inventory and order management dashboard.\n• **Backend & DevOps:** Node.js, Supabase/PostgreSQL with RLS, and GitLab CI/CD release pipelines.`,
       quickPrompts: ["Coupon & Affiliate systems", "Razorpay & PayU payments", "DocuEsign SaaS", "Contact Akshay"],
       actionLink: {
         label: "Visit www.chotubot.com",

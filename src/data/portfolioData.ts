@@ -106,9 +106,9 @@ export const PORTFOLIO_DATA = {
       role: "Full Stack Developer / Associate Software Developer",
       company: "Dextop Gadget Pvt. Ltd.",
       website: "https://www.chotubot.com",
-      period: "Dec 2025 - Present",
+      period: "Dec 2025 - 23 Sep 2026",
       location: "Pune, India",
-      badge: "Current Role",
+      badge: "Completed",
       points: [
         "Implemented the Chotubot.com e-commerce platform in react, supabase, nodejs,based on Figma designs, crafting responsive interfaces for Hero, Buy Now, Chotu Special, Modes, Creativity, Instagram/IG, and checkout sections across desktop, tablet, and mobile.",
         "Engineered an end-to-end Coupon Code System supporting fixed discounts, percentage discounts, and free shipping with real-time validation, expiry checks, and visit tracking.",
@@ -162,7 +162,7 @@ export const PORTFOLIO_DATA = {
       title: "Chotubot.com — Full-Stack E-commerce Platform",
       subtitle: "Production storefront from Figma, coupon engine, affiliate tracking, Razorpay/PayU & inventory dashboard",
       category: "Full Stack",
-      period: "Dec 2025 - Present",
+      period: "Dec 2025 - 23 Sep 2026",
       description:
         "At Dextop, I worked on Chotubot.com as a Full Stack Developer from UI implementation to backend development and production deployment. I converted Figma designs into responsive React/Next.js interfaces, implemented features such as coupon codes and affiliate marketing, integrated Razorpay and PayU payments, worked on international currency and shipping, and contributed to the inventory and order management dashboard. On the backend, I worked with Node.js, Supabase and PostgreSQL, and managed deployments using GitLab CI/CD.",
       highlights: [
