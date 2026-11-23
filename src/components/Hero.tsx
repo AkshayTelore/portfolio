@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
+import profileImg from "@/assets/profile.jpg";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import {
   ArrowRight,
@@ -65,13 +67,35 @@ export default function Hero({ onOpenChat }: HeroProps) {
               </span>
             </div>
 
-            {/* Greeting & Headline */}
-            <h1 className="hero-fade-in text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-4">
-              Hi, I&apos;m{" "}
-              <span className="gradient-text">
-                {PORTFOLIO_DATA.personal.shortName}
-              </span>
-            </h1>
+            {/* Greeting & Headline with Round Profile Picture in the beginning */}
+            <div className="hero-fade-in flex flex-col sm:flex-row items-center lg:items-center gap-5 sm:gap-7 mb-6">
+              {/* Larger Round Profile Picture at the beginning */}
+              <div className="relative group shrink-0">
+                <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-red-600 via-rose-500 to-amber-500 opacity-70 blur-xl group-hover:opacity-100 transition duration-500 animate-pulse" />
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full p-1 bg-gradient-to-tr from-red-600 via-rose-500 to-orange-400 shadow-2xl shadow-red-500/25">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-slate-900 ring-2 ring-white dark:ring-slate-900">
+                    <Image
+                      src={profileImg}
+                      alt={PORTFOLIO_DATA.personal.name}
+                      width={180}
+                      height={180}
+                      priority
+                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Name & Headline */}
+              <div className="text-center sm:text-left">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+                  Hi, I&apos;m{" "}
+                  <span className="gradient-text whitespace-nowrap">
+                    {PORTFOLIO_DATA.personal.shortName}
+                  </span>
+                </h1>
+              </div>
+            </div>
 
             <p className="hero-fade-in text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-200 mb-4">
               Full-Stack Developer building practical e-commerce & web platforms.

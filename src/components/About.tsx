@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
+import profileImg from "@/assets/profile.jpg";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import {
   GraduationCap,
@@ -147,6 +149,32 @@ export default function About() {
             delay={200}
             className="glass-panel p-6 sm:p-7 border border-slate-200 dark:border-slate-800 dark:bg-slate-900/80 space-y-4"
           >
+            {/* Profile Snapshot */}
+            <div className="flex items-center gap-3.5 pb-4 border-b border-slate-200/80 dark:border-slate-800">
+              <div className="relative w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-red-600 via-rose-500 to-amber-500 shadow-md shrink-0">
+                <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-slate-900 ring-2 ring-white dark:ring-slate-900">
+                  <Image
+                    src={profileImg}
+                    alt={PORTFOLIO_DATA.personal.name}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+              <div className="min-w-0">
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                  {PORTFOLIO_DATA.personal.name}
+                </h4>
+                <p className="text-xs text-red-600 dark:text-red-400 font-mono font-medium truncate">
+                  {PORTFOLIO_DATA.personal.role}
+                </p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                  {PORTFOLIO_DATA.personal.city}
+                </p>
+              </div>
+            </div>
+
             <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider font-mono">
               Quick Details
             </h4>
